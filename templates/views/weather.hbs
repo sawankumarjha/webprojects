@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        {{>head}}
+
+        <title>Weather Web</title>
+    </head>
+
+    <body>
+        {{>nav}}
+
+        <div class="weather">
+            <div class="weatherUpper">
+                <form action="">
+                    <input id="searchField" type="text" placeholder="Enter Your City Name.." name="city" value=""
+                        autocomplete="off">
+                    <input type="submit" value="Search" id="sbBtn">
+                </form>
+            </div>
+            <div class="weatherLower">
+
+                <div class="weatherLowerUpper">
+                    <p>{{day}} <span>{{date}}</span></p>
+                </div>
+                <div class="weatherLowerLower">
+                    <p id="cityName">Get output Here</p>
+                    <h1> <span id="deg"></span> <span id='weather'><span> </h1>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        {{>footer}}
+
+        <script>
+            let submitBtn = document.getElementById('sbBtn');
+            let inputField = document.getElementById('searchField');
+            let cityName = document.getElementById('cityName');
+            let deg = document.getElementById('deg');
+            let weather = document.getElementById('weather');
+            const API = 'e95c2b779c3536d48e8789d068511808';
+
+            const data = async (e) => {
+                e.preventDefault();
+                if (inputField.value == '') {
+                    cityName.innerHTML = 'Please Write the Name Before Search';
+                }
+                else {
+                    try {
+                        const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${inputField.value}&units=metric&appid=${API}`);
+                        const actualdata = await response.json();
+
+                        const arrData = [actualdata];
+                        const weth = arrData[0].weather[0].main;
+                        console.log(weth)
+
+                        cityName.innerHTML = `${arrData[0].name} , ${arrData[0].sys.country}`;
+                        deg.innerHTML = `${arrData[0].main.temp} &deg;C`;
+                        if (weth == 'Clear') {
+                            weather.innerHTML = '<i class="fa fa-sun-o" aria-hidden="true" style = "color: yellow;"> ';
+                        }
+                        else if (weth == 'Clouds') {
+                            weather.innerHTML = '<i class="fa fa-cloud"></i>';
+                        }
+                        else if (weth == 'Rainy') {
+                            weather.innerHTML = '<i class="fa fa-tint" aria-hidden="true"></i>';
+                        }
+                        else {
+                            console.log('Hello World');
+                            weather.innerHTML = '<i class="fa fa-cloud" aria-hidden="true"></i>';
+                        }
+
+                    }
+                    catch {
+                        cityName.innerHTML = 'Please Enter City Name Proper';
+                    }
+
+
+                }
+
+            }
+            submitBtn.addEventListener('click', data);
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,299 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+    font-family: Bahnschrift;
+    width: 100%;
+    height: 100vh;
+    text-transform: capitalize;
+}
+:root {
+    --color: #002974;
+}
+html {
+    scroll-behavior: smooth;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Navigation Style */
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 10px;
+
+    background-color: var(--color);
+    align-items: center;
+}
+.navigation a {
+    transition-property: all;
+    transition-timing-function: linear;
+    transition-delay: 0.2s;
+    transition-duration: 0.4s;
+}
+.navigation ul a {
+    margin: 0px 10px;
+    padding: 6px 10px;
+}
+.navigation h2 a {
+    color: orange;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
+}
+.navigation a:hover {
+    color: gray;
+}
+
+/* Banner Style */
+.banner {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 90vh;
+}
+.bannerLeft {
+    display: flex;
+    padding: 10px;
+    padding-left: 50px;
+    flex-direction: column;
+    width: 45%;
+}
+.bannerRight {
+    padding: 10px;
+    width: 55%;
+}
+.bannerRight img {
+    width: 100%;
+    filter: drop-shadow(2px 2px 2px black);
+}
+.bannerLeft a {
+    margin: 10px 0px;
+    text-align: center;
+    width: 200px;
+    padding: 6px 10px;
+    box-shadow: 2px 2px 2px 1px black;
+    background-color: var(--color);
+}
+.bannerLeft a:hover {
+    box-shadow: inset 1px 1px 2px 1px black;
+    transform: scale(0.98, 0.98);
+    color: gray;
+}
+.bannerLeft h1 {
+    font-size: 3rem;
+    text-shadow: 1px 1px 1px gray;
+}
+.bannerLeft h1 span {
+    color: var(--color);
+}
+/* About Syling */
+.about {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+.aboutLeft {
+    width: 40%;
+}
+.aboutLeft img {
+    width: 100%;
+    filter: drop-shadow(1px 1px 1px black);
+}
+.aboutRight {
+    width: 60%;
+}
+.aboutRight p span {
+    color: var(--color);
+    font-weight: bold;
+}
+/* Weather Style */
+.weather {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 50vh;
+    flex-direction: column;
+}
+
+.weatherUpper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+    width: 100%;
+    height: 10vh;
+}
+.weatherUpper form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#searchField {
+    outline: none;
+    border: none;
+    box-shadow: 2px 2px 2px 1px gray;
+    border-radius: 10px;
+    padding: 6px 10px;
+    width: 500px;
+    margin: 0px 10px;
+}
+#searchField:hover {
+    box-shadow: inset 2px 2px 2px 1px gray;
+}
+.weatherLower {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 50%;
+    background-color: var(--color);
+    box-shadow: 0px 10px 10px -9px black;
+    height: 40vh;
+}
+.weatherLowerUpper {
+    width: 100%;
+    padding: 20px;
+    height: 20%;
+    /* background: orange; */
+}
+.weatherLowerLower {
+    width: 100%;
+    padding: 20px;
+    height: 80%;
+}
+.weatherLowerUpper p {
+    color: gray;
+}
+.weatherLowerUpper p span {
+    float: right;
+}
+.weatherLowerLower h1 {
+    padding: 20px 0px;
+    color: white;
+    text-align: center;
+    font-size: 4rem;
+}
+.weatherLowerLower h1 i {
+    font-size: 6rem;
+    filter: drop-shadow(1px 1px 1px black);
+}
+#cityName {
+    padding: 10px 0px;
+    text-shadow: 1px 1px 1px black;
+    color: gray;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+#sbBtn {
+    cursor: pointer;
+    padding: 6px 20px;
+    background-color: var(--color);
+    outline: none;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 1px black;
+}
+#sbBtn:hover {
+    transform: scale(0.98, 0.98);
+    box-shadow: inset 1px 1px 2px 1px black;
+    color: gray;
+}
+/* footer */
+footer {
+    margin-top: auto;
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
+}
+footer i,
+footer span {
+    color: var(--color);
+}
+
+/* Responsive Style */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .weatherLower {
+        width: 70%;
+        height: 30vh;
+    }
+}
+@media screen and (min-device-width: 200px) and (max-device-width: 600px) {
+    .navigation h2 a {
+        letter-spacing: 0.5px;
+        font-size: 0.7rem;
+    }
+    .navigation ul a {
+        font-size: 8px;
+        margin: 0px 2px;
+        padding: 6px 2px;
+    }
+    .banner {
+        flex-direction: column-reverse;
+    }
+
+    .bannerLeft {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        width: 100%;
+    }
+    .bannerLeft h1 {
+        font-size: 2rem;
+    }
+    .bannerRight {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .about {
+        height: 200vh;
+    }
+    .aboutLeft {
+        width: 100%;
+    }
+
+    .aboutRight {
+        width: 100%;
+    }
+    .weather {
+        width: 100%;
+        height: 60vh;
+    }
+    #searchField {
+        width: 60%;
+        outline: none;
+        border: none;
+        box-shadow: 2px 2px 2px 1px gray;
+        border-radius: 10px;
+        padding: 6px 5px;
+        margin: 0px 4px;
+    }
+
+    .weatherUpper {
+        height: 15vh;
+    }
+    .weatherLower {
+        width: 90%;
+        height: 45vh;
+    }
+}
