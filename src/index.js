@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
 const hbs = require('hbs');
-const requests = require('requests');
 
 const path = require('path');
 const { dirname } = require('path');
 const viewsPath = path.join(__dirname, '../templates/views');
 const publicPath = path.join(__dirname, '../public');
 const partialPath = path.join(__dirname, '../templates/partials');
+const port = process.env.PORT || 8000;
 let dt = new Date();
 app.use('/about', express.static(publicPath));
 app.use('/', express.static(publicPath));
@@ -45,6 +45,6 @@ app.get('weather/*', (req, res) => {
 app.get('*', (req, res) => {
     res.render('not');
 });
-app.listen(8000, (err) => {
+app.listen(port, (err) => {
     console.log("Listening at port 8000");
 })
